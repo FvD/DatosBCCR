@@ -1,32 +1,32 @@
 # DatosBCCR
-Funci髇 para conectarse al API del BCCR y descargar las series directamente a R.
-Requiere instalaci髇 previa de los siguientes paquetes: RCurl, httr, dplyr, tibble, magrittr y XML.
-En caso de no estar instalados, los paquetes son descargados autom醫icamente en el momento de la instalaci髇 (descrita abajo).
-Para una descripci髇 del API, ver: http://www.bccr.fi.cr/indicadores_economicos_/ServicioWeb.html.
+Funci贸n para conectarse al API del BCCR y descargar las series directamente a R.
+Requiere instalaci贸n previa de los siguientes paquetes: RCurl, httr, dplyr, tibble, magrittr y XML.
+En caso de no estar instalados, los paquetes son descargados autom谩ticamente en el momento de la instalaci贸n (descrita abajo).
+Para una descripci贸n del API, ver: http://www.bccr.fi.cr/indicadores_economicos_/ServicioWeb.html.
 
-##Instalaci髇
+## Instalaci贸n
 
 Para instalar el paquete se deben seguir dos pasos:
 
 1. Instalar el paquete devtools (`install.packages("devtools"); library("devtools")`).
-2. Utilizar el comando de instalaci髇 desde github: `install_github("rafaelcb/DatosBCCR")`
+2. Utilizar el comando de instalaci贸n desde github: `install_github("rafaelcb/DatosBCCR")`
 
 ## Uso
 
-La funci髇 de descarga es `DescargarDatosBCCR(indicador, inicio="11/02/1989", fin = "hoy", subniveles = "N", nombre= "me")`. La funci髇 retorna un [tibble](https://blog.rstudio.org/2016/03/24/tibble-1-0-0/) en formato largo.
+La funci贸n de descarga es `DescargarDatosBCCR(indicador, inicio="11/02/1989", fin = "hoy", subniveles = "N", nombre= "me")`. La funci贸n retorna un [tibble](https://blog.rstudio.org/2016/03/24/tibble-1-0-0/) en formato largo.
 
-### Par醡etros
-* El _indicador_ es el 鷑ico par醡etro obligatorio. Se trata de un n鷐ero de serie que puede ser obtenido del listado disponible a trav閟 de `View(cods)`. Para varias series, se puede utilizar un vector num閞ico (`DescargarDatosBCCR(c(1, 317))` retorna por ejemplo el tipo de cambio de compra diario y la cuenta corriente trimestral).
+### Par谩metros
+* El _indicador_ es el 煤nico par谩metro obligatorio. Se trata de un n煤mero de serie que puede ser obtenido del listado disponible a trav茅s de `View(cods)`. Para varias series, se puede utilizar un vector num茅rico (`DescargarDatosBCCR(c(1, 317))` retorna por ejemplo el tipo de cambio de compra diario y la cuenta corriente trimestral).
 
-* Las fechas de _inicio_ y _fin_ son aquellas que se desean intentar descargar. Deben ser ingresadas como texto y en formato "dd/mm/aaaa". Para la fecha final, el par醡etro `"hoy"`puede ser usado para referenciar la fecha del sistema.
+* Las fechas de _inicio_ y _fin_ son aquellas que se desean intentar descargar. Deben ser ingresadas como texto y en formato "dd/mm/aaaa". Para la fecha final, el par谩metro `"hoy"`puede ser usado para referenciar la fecha del sistema.
 
-* El par醡etro _subniveles_ se refiere a la posibilidad de descargar ciertas variables relacionadas a la de inter閟. S髄o puede tener uno de dos valores, `"S"` si se quiere descargar las dependencias o `"N"` si no. Por ejemplo, `DescargarDatosBCCR(1, subniveles = "S")` retorna 14 series con los distintos componentes de la cuenta corriente. Para determinar si existen subniveles, se debe realizar una inspecci髇 visual de las series [en el sitio del BCCR](http://www.bccr.fi.cr/indicadores_economicos_/ServicioWeb.html), ya que la indentaci髇 indica las relaciones entre variables.
+* El par谩metro _subniveles_ se refiere a la posibilidad de descargar ciertas variables relacionadas a la de inter茅s. S贸lo puede tener uno de dos valores, `"S"` si se quiere descargar las dependencias o `"N"` si no. Por ejemplo, `DescargarDatosBCCR(1, subniveles = "S")` retorna 14 series con los distintos componentes de la cuenta corriente. Para determinar si existen subniveles, se debe realizar una inspecci贸n visual de las series [en el sitio del BCCR](http://www.bccr.fi.cr/indicadores_economicos_/ServicioWeb.html), ya que la indentaci贸n indica las relaciones entre variables.
 
-* Por 鷏timo, el par醡etro _nombre_ se refiere a una cadena de texto que sirve como referencia para que el API tenga un control respecto a qui閚 descarga los datos.
+* Por 煤ltimo, el par谩metro _nombre_ se refiere a una cadena de texto que sirve como referencia para que el API tenga un control respecto a qui茅n descarga los datos.
 
 
 
-**Versi髇 0.3.0: Agosto 2016**
+**Versi贸n 0.3.0: Agosto 2016**
 
 
 
